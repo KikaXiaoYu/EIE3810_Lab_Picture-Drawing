@@ -16,7 +16,6 @@ Note.write(
     """
 #include "stm32f10x.h"
 #include "EIE3810_TFTLCD.h"
-#include "draws.H"
 
 
 void Delay(u32);
@@ -55,7 +54,7 @@ for y in range(0, height):
         g = (g >> 2) & 0x3F  # 0x3F = 00111111
         b = (b >> 3) & 0x1F  # 0x1F = 00011111
         rgb565 = (b << 0) + (g << 5) + (r << 11)
-        Note.write("EIE3810_TFTLCD_FillRectangle({0}, {1}, {2}, {3}, {4});\n"
+        Note.write("    EIE3810_TFTLCD_FillRectangle({0}, {1}, {2}, {3}, {4});\n"
                    .format(x*g_cutfact, g_cutfact, y*g_cutfact, g_cutfact, hex(rgb565)))
 
 
